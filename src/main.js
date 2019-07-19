@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// 根组件
 import App from './App.vue'
 
 Vue.config.productionTip = false
