@@ -16,4 +16,7 @@ exports= {
   }, {
       loader: 'sass-loader'
   }]
+}, {
+    test: /\.vue$/,
+   loader: 'vue-loader'
 }

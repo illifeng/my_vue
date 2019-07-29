@@ -7,7 +7,7 @@ export const postLogin=(result)=>{
         // 请求路径(文档接口中的路径)
         url:'login',
         // 请求方式
-        methods: 'post',
+        method: 'post',
         // 向后台发的用户数据
         data:result
     })

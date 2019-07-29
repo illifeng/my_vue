@@ -10,9 +10,7 @@
     <el-input v-model="loginobj.username" placeholder="输入大宝号" prefix-icon="el-icon-lollipop"></el-input>
   </el-form-item>
   <!-- 密码输入框 -->
-  <el-form-item  prop="password">
-    <el-input v-model="loginobj.password" placeholder="请输入密码" prefix-icon="el-icon-s-promotion"></el-input>
-  </el-form-item>
+  <el-input placeholder="请输入密码" v-model="loginobj.password" show-password></el-input>
   <!-- 登录按钮 -->
      <el-form-item>
     <el-button type="primary" @click="getLogin" class="login-btn">点我登录</el-button>
@@ -27,7 +25,7 @@ export default {
     data(){
         return{
             loginobj:{
-                username:'jack',
+                username:'admin',
                 password:'123456'
             },
             // element-ui插件里面的配置,username与password和prop值一样才有效果
@@ -54,7 +52,9 @@ export default {
           //  成功回调
            .then(res=>{
              if(res.data.meta.status==200){
-              //  console.log('成功登陆');
+               console.log(res);
+              //  在本地储存登录成功时的token值,方便导航守卫时做验证
+               localStorage.setItem('local_login_21',res.data.data.token)
               // 路径拼接,进行页面跳转
               this.$router.push({name:'goToHome'})
              }
